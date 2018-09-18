@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <!--sheet 对应一个工作表-->
+    <!--taskName:任务名称,不可为空-->
+    <!--comment:该任务的描述,可为空-->
+    <!--headerRowNum:指定表头行(字段定义)位置,可不写,默认为1(首行)-->
+    <task taskName="Example" comment="Example" headerRowNum="1">
+        <!--一个class对应一个对象-->
+        <!--className:对象名,可以只使用类名(将会自动查找),区分大小写,对于转Map数据任务,此项可不写-->
+        <!--isAllowFailonInsert:是否允许部分属性为空,在将excel数据转换为bean时允许找不到的映射属性为空,可不写,默认为false-->
+        <!--insertFailErrorLimit:不允许映射属性为空,设定一个超过次数,可不写,默认为0-->
+        <!--channel bena-->
+        <class className="com.XXXX.bean.OrderMain" isAllowFailonInsert="false" insertFailErrorLimit="5">
+            <!--columns:配置对象属性与表格字段的映射关系-->
+            <!--columnName:表格列名-->
+            <!--propertyName:对应的类中的属性名-->
+            <!--allowValue:该属性允许的值-->
+            <!--isAllowNull:允许该数据为空,可不写,默认为false-->
+            <columns columnName="销售品ID" propertyName="SALESID" minLength="12"/>
+            <columns columnName="库存数量" propertyName="STOCK" minValue="1"/>
+            <columns columnName="销售品名称" propertyName="SALESNAME" maxLength="11"/>
+            <columns columnName="价格" propertyName="PRICE" maxValue="10000000"/>
+            <columns columnName="渠道名称" propertyName="CHANNELNAME" allowValue="-1,0,1,2,3,4,5,6"/>
+            <columns columnName="状态" propertyName="STATUES" notAllowValue="100,500"/>
+            <columns columnName="渠道编码" propertyName="CHANNELCODE" isAllowNull="true"/>
+            <columns columnName="手机号码" propertyName="MAINNUM" regex=""/>
+        </class>
+        <!--sales bean-->
+        <class className="com.XXXX.bean.OrderItem">
+            <columns columnName="手机号码" propertyName="SERVERNUM"/>
+            <columns columnName="产品名称" propertyName="PRODNAME"/>
+            <columns columnName="产品ID" propertyName="PRODID"/>
+        </class>
+    </task>
+
+    <task taskName="Example" comment="Example" headerRowNum="1">
+        <!--一个class对应一个对象-->
+        <!--className:对象名,可以只使用类名(将会自动查找),区分大小写-->
+        <!--isAllowFailonInsert:是否允许部分属性为空,在将excel数据转换为bean时允许找不到的映射属性为空,可不写,默认为false-->
+        <!--insertFailErrorLimit:不允许映射属性为空,设定一个超过次数,可不写,默认为0-->
+        <!--channel bena-->
+        <class isAllowFailonInsert="false" insertFailErrorLimit="5">
+            <!--columns:配置对象属性与表格字段的映射关系-->
+            <!--columnName:表格列名-->
+            <!--propertyName:对应的类中的属性名-->
+            <!--allowValue:该属性允许的值-->
+            <!--isAllowNull:允许该数据为空,可不写,默认为false-->
+            <columns columnName="销售品ID" propertyName="SALESID" minLength="12"/>
+            <columns columnName="库存数量" propertyName="STOCK" minValue="1"/>
+            <columns columnName="销售品名称" propertyName="SALESNAME" maxLength="11"/>
+            <columns columnName="价格" propertyName="PRICE" maxValue="10000000"/>
+            <columns columnName="渠道名称" propertyName="CHANNELNAME" allowValue="-1,0,1,2,3,4,5,6"/>
+            <columns columnName="状态" propertyName="STATUES" notAllowValue="100,500"/>
+            <columns columnName="渠道编码" propertyName="CHANNELCODE" isAllowNull="true"/>
+            <columns columnName="手机号码" propertyName="MAINNUM" regex=""/>
+        </class>
+        <!--sales bean-->
+        <class className="com.XXXX.bean.OrderItem">
+            <columns columnName="手机号码" propertyName="SERVERNUM"/>
+            <columns columnName="产品名称" propertyName="PRODNAME"/>
+            <columns columnName="产品ID" propertyName="PRODID"/>
+        </class>
+    </task>
+
+
+    <task taskName="testTask" comment="testTask">
+        <class>
+            <columns columnName="test" propertyName="test"/>
+        </class>
+    </task>
+
+</root>
